@@ -525,6 +525,15 @@ namespace VpsSetup
                 checkSetupWinrar.Checked = true;
                 checkSetupWinrar.ForeColor = Color.Blue;
             }
+            Thread.Sleep(1000);
+            filename = toolboxs_folder + "\\WinRAR\\rarreg.key";
+            if (File.Exists(filename))
+            {
+                string winrar64 = "C:\\Program Files\\WinRAR\\rarreg.key";
+                string winrar32 = "C:\\Program Files (x86)\\WinRAR\\rarreg.key";
+                if (File.Exists(winrar64)) File.Copy(filename, winrar64);
+                if (File.Exists(winrar32)) File.Copy(filename, winrar32);
+            }
         }
 
         private void checkFixCopy_Click(object sender, EventArgs e)
