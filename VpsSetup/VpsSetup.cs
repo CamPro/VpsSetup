@@ -437,7 +437,7 @@ namespace VpsSetup
         
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            string delete = "echo off && timeout 3 && del /f /q /a /s \"" + Application.ExecutablePath + "\" && del /f /q /a /s \"" + toolboxs_folder + "\"";
+            string delete = "echo off && timeout 3 && DEL /f /q /a /s \"" + Application.ExecutablePath + "\" && RD /s /q \"" + toolboxs_folder + "\"";
             string script = Path.GetTempPath() + "delete.bat";
             File.WriteAllText(script, delete);
             Process.Start(new ProcessStartInfo() {FileName = script, WindowStyle = ProcessWindowStyle.Hidden });
