@@ -52,11 +52,12 @@ namespace VpsSetup
             this.buttonRandomUser = new System.Windows.Forms.Button();
             this.buttonRandomPass = new System.Windows.Forms.Button();
             this.checkBlockUpdate = new System.Windows.Forms.CheckBox();
+            this.checkSetupWinrar = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonCredSSP
             // 
-            this.buttonCredSSP.Location = new System.Drawing.Point(306, 180);
+            this.buttonCredSSP.Location = new System.Drawing.Point(10, 330);
             this.buttonCredSSP.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCredSSP.Name = "buttonCredSSP";
             this.buttonCredSSP.Size = new System.Drawing.Size(120, 28);
@@ -68,7 +69,7 @@ namespace VpsSetup
             // checkSetupFirefox
             // 
             this.checkSetupFirefox.AutoSize = true;
-            this.checkSetupFirefox.Location = new System.Drawing.Point(12, 330);
+            this.checkSetupFirefox.Location = new System.Drawing.Point(220, 180);
             this.checkSetupFirefox.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupFirefox.Name = "checkSetupFirefox";
             this.checkSetupFirefox.Size = new System.Drawing.Size(76, 24);
@@ -80,7 +81,7 @@ namespace VpsSetup
             // checkSetupChrome
             // 
             this.checkSetupChrome.AutoSize = true;
-            this.checkSetupChrome.Location = new System.Drawing.Point(120, 330);
+            this.checkSetupChrome.Location = new System.Drawing.Point(330, 180);
             this.checkSetupChrome.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupChrome.Name = "checkSetupChrome";
             this.checkSetupChrome.Size = new System.Drawing.Size(84, 24);
@@ -125,7 +126,7 @@ namespace VpsSetup
             // 
             // buttonDnsJumper
             // 
-            this.buttonDnsJumper.Location = new System.Drawing.Point(306, 220);
+            this.buttonDnsJumper.Location = new System.Drawing.Point(155, 330);
             this.buttonDnsJumper.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDnsJumper.Name = "buttonDnsJumper";
             this.buttonDnsJumper.Size = new System.Drawing.Size(120, 28);
@@ -214,7 +215,7 @@ namespace VpsSetup
             // checkFixCopy
             // 
             this.checkFixCopy.AutoSize = true;
-            this.checkFixCopy.Location = new System.Drawing.Point(12, 370);
+            this.checkFixCopy.Location = new System.Drawing.Point(330, 140);
             this.checkFixCopy.Margin = new System.Windows.Forms.Padding(2);
             this.checkFixCopy.Name = "checkFixCopy";
             this.checkFixCopy.Size = new System.Drawing.Size(88, 24);
@@ -292,7 +293,7 @@ namespace VpsSetup
             // checkBlockUpdate
             // 
             this.checkBlockUpdate.AutoSize = true;
-            this.checkBlockUpdate.Location = new System.Drawing.Point(120, 370);
+            this.checkBlockUpdate.Location = new System.Drawing.Point(220, 220);
             this.checkBlockUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.checkBlockUpdate.Name = "checkBlockUpdate";
             this.checkBlockUpdate.Size = new System.Drawing.Size(124, 24);
@@ -301,12 +302,25 @@ namespace VpsSetup
             this.checkBlockUpdate.UseVisualStyleBackColor = true;
             this.checkBlockUpdate.Click += new System.EventHandler(this.checkBlockUpdate_Click);
             // 
+            // checkSetupWinrar
+            // 
+            this.checkSetupWinrar.AutoSize = true;
+            this.checkSetupWinrar.Location = new System.Drawing.Point(220, 140);
+            this.checkSetupWinrar.Margin = new System.Windows.Forms.Padding(2);
+            this.checkSetupWinrar.Name = "checkSetupWinrar";
+            this.checkSetupWinrar.Size = new System.Drawing.Size(74, 24);
+            this.checkSetupWinrar.TabIndex = 32;
+            this.checkSetupWinrar.Text = "Winrar";
+            this.checkSetupWinrar.UseVisualStyleBackColor = true;
+            this.checkSetupWinrar.Click += new System.EventHandler(this.checkSetupWinrar_Click);
+            // 
             // VpsSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 411);
+            this.Controls.Add(this.checkSetupWinrar);
             this.Controls.Add(this.checkBlockUpdate);
             this.Controls.Add(this.buttonRandomPort);
             this.Controls.Add(this.buttonRandomUser);
@@ -366,6 +380,7 @@ namespace VpsSetup
         private System.Windows.Forms.Button buttonRandomUser;
         private System.Windows.Forms.Button buttonRandomPass;
         private System.Windows.Forms.CheckBox checkBlockUpdate;
+        private System.Windows.Forms.CheckBox checkSetupWinrar;
     }
 }
 

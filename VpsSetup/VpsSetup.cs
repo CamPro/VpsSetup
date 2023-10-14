@@ -207,6 +207,122 @@ namespace VpsSetup
             process.WaitForExit(5000);
         }
 
+        private void textPass_Click(object sender, EventArgs e)
+        {
+            textPass.SelectAll();
+            if (!string.IsNullOrEmpty(textPass.Text))
+            {
+                Clipboard.SetText(textPass.Text);
+            }
+        }
+
+        private void textUser_Click(object sender, EventArgs e)
+        {
+            textUser.SelectAll();
+            if (!string.IsNullOrEmpty(textUser.Text))
+            {
+                Clipboard.SetText(textUser.Text);
+            }
+        }
+
+        private void textPort_Click(object sender, EventArgs e)
+        {
+            textPort.SelectAll();
+            if (!string.IsNullOrEmpty(textPort.Text))
+            {
+                Clipboard.SetText(textPort.Text);
+            }
+        }
+
+        private void textInfoIP_Click(object sender, EventArgs e)
+        {
+            textInfoIP.SelectAll();
+            string text = textInfoIP.Text.Trim();
+            if (!string.IsNullOrEmpty(text))
+            {
+                Clipboard.SetText(text);
+            }
+        }
+
+        private void buttonPass_Click(object sender, EventArgs e)
+        {
+            string pass = textPass.Text;
+            if (string.IsNullOrEmpty(pass))
+            {
+                return;
+            }
+            string user = Environment.UserName;
+            net("user \"" + user + "\" \"" + pass + "\"");
+            buttonPass.ForeColor = Color.Blue;
+            Clipboard.SetText(pass);
+            shutdown("/r /t 1800");
+        }
+
+        private void buttonUser_Click(object sender, EventArgs e)
+        {
+            string newUser = textUser.Text;
+            if (string.IsNullOrEmpty(newUser))
+            {
+                return;
+            }
+            string curUser = Environment.UserName;
+            wmic("useraccount where name='" + curUser + "' rename '" + newUser + "'");
+            buttonUser.ForeColor = Color.Blue;
+            buttonPass.Enabled = false;
+            buttonRandomPass.Enabled = false;
+            textPass.Enabled = false;
+            shutdown("/r /t 1800");
+        }
+
+        private void buttonPort_Click(object sender, EventArgs e)
+        {
+            int port = Convert.ToInt32(textPort.Text);
+            reg("ADD \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v PortNumber /t REG_DWORD /d " + port + " /f");
+            netsh("advfirewall firewall add rule name=\"Remote-Port\" dir=in action=allow protocol=TCP localport=" + port);
+            buttonPort.ForeColor = Color.Blue;
+            shutdown("/r /t 1800");
+        }
+
+        private void textPass_TextChanged(object sender, EventArgs e)
+        {
+            buttonPass.Enabled = !string.IsNullOrEmpty(textPass.Text);
+        }
+
+        private void textUser_TextChanged(object sender, EventArgs e)
+        {
+            buttonUser.Enabled = !string.IsNullOrEmpty(textUser.Text);
+        }
+
+        private void textPort_TextChanged(object sender, EventArgs e)
+        {
+            buttonPort.Enabled = !string.IsNullOrEmpty(textPort.Text);
+        }
+
+        private void buttonRandomPass_Click(object sender, EventArgs e)
+        {
+            string text = this.chars[random.Next(0, 25)];
+            for (int i = 0; i < 19; i++)
+            {
+                text += this.chars[random.Next(0, chars.Count - 1)];
+            }
+            textPass.Text = text;
+        }
+
+        private void buttonRandomUser_Click(object sender, EventArgs e)
+        {
+            string text = this.words[random.Next(0, 25)];
+            for (int i = 0; i < 3; i++)
+            {
+                text += this.words[random.Next(0, words.Count - 1)];
+            }
+            textUser.Text = text;
+        }
+
+        private void buttonRandomPort_Click(object sender, EventArgs e)
+        {
+            textPort.Text = $"{random.Next(1025, 65535)}";
+        }
+
         private void checkSetupFirefox_Click(object sender, EventArgs e)
         {
             // setup firefox
@@ -400,6 +516,17 @@ namespace VpsSetup
             catch { }
         }
 
+        private void checkSetupWinrar_Click(object sender, EventArgs e)
+        {
+            string filename = toolboxs_folder + "\\WinRAR\\winrar-x32-624.exe";
+            if (File.Exists(filename))
+            {
+                Process.Start(filename, "/S");
+                checkSetupWinrar.Checked = true;
+                checkSetupWinrar.ForeColor = Color.Blue;
+            }
+        }
+
         private void checkFixCopy_Click(object sender, EventArgs e)
         {
             string rdpclip = @"C:\Windows\Sysnative\rdpclip.exe";
@@ -440,7 +567,7 @@ namespace VpsSetup
                 Process.Start(filename);
             }
         }
-        
+
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             string delete = "echo off && timeout 3 && DEL /f /q /a /s \"" + Application.ExecutablePath + "\" && RD /s /q \"" + toolboxs_folder + "\"";
@@ -448,122 +575,6 @@ namespace VpsSetup
             File.WriteAllText(script, delete);
             Process.Start(new ProcessStartInfo() {FileName = script, WindowStyle = ProcessWindowStyle.Hidden });
             Application.Exit();
-        }
-
-        private void textPass_Click(object sender, EventArgs e)
-        {
-            textPass.SelectAll();
-            if (!string.IsNullOrEmpty(textPass.Text))
-            {
-                Clipboard.SetText(textPass.Text);
-            }
-        }
-
-        private void textUser_Click(object sender, EventArgs e)
-        {
-            textUser.SelectAll();
-            if (!string.IsNullOrEmpty(textUser.Text))
-            {
-                Clipboard.SetText(textUser.Text);
-            }
-        }
-
-        private void textPort_Click(object sender, EventArgs e)
-        {
-            textPort.SelectAll();
-            if (!string.IsNullOrEmpty(textPort.Text))
-            {
-                Clipboard.SetText(textPort.Text);
-            }
-        }
-
-        private void textInfoIP_Click(object sender, EventArgs e)
-        {
-            textInfoIP.SelectAll();
-            string text = textInfoIP.Text.Trim();
-            if (!string.IsNullOrEmpty(text))
-            {
-                Clipboard.SetText(text);
-            }
-        }
-
-        private void buttonPass_Click(object sender, EventArgs e)
-        {
-            string pass = textPass.Text;
-            if (string.IsNullOrEmpty(pass))
-            {
-                return;
-            }
-            string user = Environment.UserName;
-            net("user \"" + user + "\" \"" + pass + "\"");
-            buttonPass.ForeColor = Color.Blue;
-            Clipboard.SetText(pass);
-            shutdown("/r /t 1800");
-        }
-
-        private void buttonUser_Click(object sender, EventArgs e)
-        {
-            string newUser = textUser.Text;
-            if (string.IsNullOrEmpty(newUser))
-            {
-                return;
-            }
-            string curUser = Environment.UserName;
-            wmic("useraccount where name='" + curUser + "' rename '" + newUser + "'");
-            buttonUser.ForeColor = Color.Blue;
-            buttonPass.Enabled = false;
-            buttonRandomPass.Enabled = false;
-            textPass.Enabled = false;
-            shutdown("/r /t 1800");
-        }
-
-        private void buttonPort_Click(object sender, EventArgs e)
-        {
-            int port = Convert.ToInt32(textPort.Text);
-            reg("ADD \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v PortNumber /t REG_DWORD /d " + port + " /f");
-            netsh("advfirewall firewall add rule name=\"Remote-Port\" dir=in action=allow protocol=TCP localport=" + port);
-            buttonPort.ForeColor = Color.Blue;
-            shutdown("/r /t 1800");
-        }
-
-        private void textPass_TextChanged(object sender, EventArgs e)
-        {
-            buttonPass.Enabled = !string.IsNullOrEmpty(textPass.Text);
-        }
-
-        private void textUser_TextChanged(object sender, EventArgs e)
-        {
-            buttonUser.Enabled = !string.IsNullOrEmpty(textUser.Text);
-        }
-
-        private void textPort_TextChanged(object sender, EventArgs e)
-        {
-            buttonPort.Enabled = !string.IsNullOrEmpty(textPort.Text);
-        }
-
-        private void buttonRandomPass_Click(object sender, EventArgs e)
-        {
-            string text = this.chars[random.Next(0, 25)];
-            for (int i = 0; i < 19; i++)
-            {
-                text += this.chars[random.Next(0, chars.Count - 1)];
-            }
-            textPass.Text = text;
-        }
-
-        private void buttonRandomUser_Click(object sender, EventArgs e)
-        {
-            string text = this.words[random.Next(0, 25)];
-            for (int i = 0; i < 3; i++)
-            {
-                text += this.words[random.Next(0, words.Count - 1)];
-            }
-            textUser.Text = text;
-        }
-
-        private void buttonRandomPort_Click(object sender, EventArgs e)
-        {
-            textPort.Text = $"{random.Next(1025, 65535)}";
         }
 
         private List<string[]> timeZones = new List<string[]>()
