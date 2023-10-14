@@ -262,6 +262,12 @@ namespace VpsSetup
             {
                 File.Copy(filename, chrome + "\\Bookmarks", true);
             }
+            // copy preferences
+            filename = toolboxs_folder + "\\Chrome\\Preferences";
+            if (File.Exists(filename))
+            {
+                File.Copy(filename, chrome + "\\Preferences", true);
+            }
             // setup Chrome
             filename = toolboxs_folder + "\\Chrome\\ChromeSetup.exe";
             Process.Start(filename);
