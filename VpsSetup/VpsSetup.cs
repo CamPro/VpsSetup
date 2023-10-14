@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,6 +41,7 @@ namespace VpsSetup
         private void VpsSetup_Load(object sender, EventArgs e)
         {
             this.Text += $" {appVersion.ToString("0.0")}";
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
         }
 
         private void VpsSetup_Shown(object sender, EventArgs e)
@@ -54,7 +57,15 @@ namespace VpsSetup
             if (!Directory.Exists(toolboxs_folder) && !Directory.Exists(toolboxs_document))
             {
                 Task backgroud = new Task(() => {
-
+                    string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/VpsSetup/tools.zip";
+                    string local_tools = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tools.zip";
+                    string document = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, document);
+                    Thread.Sleep(10);
+                    File.Delete(local_tools);
+                    toolboxs_folder = toolboxs_document;
                 });
                 backgroud.Start();
             }
@@ -426,7 +437,7 @@ namespace VpsSetup
         
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            string delete = "echo off && timeout 3 && del /f /q /a /s \"" + Application.ExecutablePath + "\"";
+            string delete = "echo off && timeout 3 && del /f /q /a /s \"" + Application.ExecutablePath + "\" && del /f /q /a /s \"" + toolboxs_folder + "\"";
             string script = Path.GetTempPath() + "delete.bat";
             File.WriteAllText(script, delete);
             Process.Start(new ProcessStartInfo() {FileName = script, WindowStyle = ProcessWindowStyle.Hidden });
@@ -494,6 +505,9 @@ namespace VpsSetup
             string curUser = Environment.UserName;
             wmic("useraccount where name='" + curUser + "' rename '" + newUser + "'");
             buttonUser.ForeColor = Color.Blue;
+            buttonPass.Enabled = false;
+            buttonRandomPass.Enabled = false;
+            textPass.Enabled = false;
             shutdown("/r /t 1800");
         }
 
