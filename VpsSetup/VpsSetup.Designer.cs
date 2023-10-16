@@ -53,6 +53,18 @@ namespace VpsSetup
             this.buttonRandomPass = new System.Windows.Forms.Button();
             this.checkBlockUpdate = new System.Windows.Forms.CheckBox();
             this.checkSetupWinrar = new System.Windows.Forms.CheckBox();
+            this.pictureOpenFirewall = new System.Windows.Forms.PictureBox();
+            this.pictureOpenTaskSchd = new System.Windows.Forms.PictureBox();
+            this.pictureOpenPrograms = new System.Windows.Forms.PictureBox();
+            this.pictureOpenTaskMgr = new System.Windows.Forms.PictureBox();
+            this.pictureOpenControlPanel = new System.Windows.Forms.PictureBox();
+            this.pictureOpenCmd = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenPrograms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskMgr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenControlPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenCmd)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCredSSP
@@ -121,7 +133,6 @@ namespace VpsSetup
             this.textPass.Name = "textPass";
             this.textPass.Size = new System.Drawing.Size(240, 26);
             this.textPass.TabIndex = 9;
-            this.textPass.Click += new System.EventHandler(this.textPass_Click);
             this.textPass.TextChanged += new System.EventHandler(this.textPass_TextChanged);
             // 
             // buttonDnsJumper
@@ -153,7 +164,6 @@ namespace VpsSetup
             this.textUser.Name = "textUser";
             this.textUser.Size = new System.Drawing.Size(240, 26);
             this.textUser.TabIndex = 12;
-            this.textUser.Click += new System.EventHandler(this.textUser_Click);
             this.textUser.TextChanged += new System.EventHandler(this.textUser_TextChanged);
             // 
             // textPort
@@ -163,7 +173,6 @@ namespace VpsSetup
             this.textPort.Name = "textPort";
             this.textPort.Size = new System.Drawing.Size(240, 26);
             this.textPort.TabIndex = 13;
-            this.textPort.Click += new System.EventHandler(this.textPort_Click);
             this.textPort.TextChanged += new System.EventHandler(this.textPort_TextChanged);
             // 
             // checkDnsJumper
@@ -182,7 +191,7 @@ namespace VpsSetup
             // 
             this.buttonSeftDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSeftDelete.ForeColor = System.Drawing.Color.Red;
-            this.buttonSeftDelete.Location = new System.Drawing.Point(398, 366);
+            this.buttonSeftDelete.Location = new System.Drawing.Point(398, 370);
             this.buttonSeftDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSeftDelete.Name = "buttonSeftDelete";
             this.buttonSeftDelete.Size = new System.Drawing.Size(28, 28);
@@ -218,9 +227,9 @@ namespace VpsSetup
             this.checkFixCopy.Location = new System.Drawing.Point(330, 140);
             this.checkFixCopy.Margin = new System.Windows.Forms.Padding(2);
             this.checkFixCopy.Name = "checkFixCopy";
-            this.checkFixCopy.Size = new System.Drawing.Size(88, 24);
+            this.checkFixCopy.Size = new System.Drawing.Size(85, 24);
             this.checkFixCopy.TabIndex = 0;
-            this.checkFixCopy.Text = "Fix Copy";
+            this.checkFixCopy.Text = "Fix copy";
             this.checkFixCopy.UseVisualStyleBackColor = true;
             this.checkFixCopy.Click += new System.EventHandler(this.checkFixCopy_Click);
             // 
@@ -296,9 +305,9 @@ namespace VpsSetup
             this.checkBlockUpdate.Location = new System.Drawing.Point(220, 220);
             this.checkBlockUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.checkBlockUpdate.Name = "checkBlockUpdate";
-            this.checkBlockUpdate.Size = new System.Drawing.Size(124, 24);
+            this.checkBlockUpdate.Size = new System.Drawing.Size(121, 24);
             this.checkBlockUpdate.TabIndex = 31;
-            this.checkBlockUpdate.Text = "Block Update";
+            this.checkBlockUpdate.Text = "Block update";
             this.checkBlockUpdate.UseVisualStyleBackColor = true;
             this.checkBlockUpdate.Click += new System.EventHandler(this.checkBlockUpdate_Click);
             // 
@@ -314,12 +323,84 @@ namespace VpsSetup
             this.checkSetupWinrar.UseVisualStyleBackColor = true;
             this.checkSetupWinrar.Click += new System.EventHandler(this.checkSetupWinrar_Click);
             // 
+            // pictureOpenFirewall
+            // 
+            this.pictureOpenFirewall.Image = global::VpsSetup.Properties.Resources.icon_Firewall_32;
+            this.pictureOpenFirewall.Location = new System.Drawing.Point(210, 370);
+            this.pictureOpenFirewall.Name = "pictureOpenFirewall";
+            this.pictureOpenFirewall.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenFirewall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenFirewall.TabIndex = 38;
+            this.pictureOpenFirewall.TabStop = false;
+            this.pictureOpenFirewall.Click += new System.EventHandler(this.pictureOpenFirewall_Click);
+            // 
+            // pictureOpenTaskSchd
+            // 
+            this.pictureOpenTaskSchd.Image = global::VpsSetup.Properties.Resources.icon_Scheduled_Tasks_32;
+            this.pictureOpenTaskSchd.Location = new System.Drawing.Point(90, 371);
+            this.pictureOpenTaskSchd.Name = "pictureOpenTaskSchd";
+            this.pictureOpenTaskSchd.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenTaskSchd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenTaskSchd.TabIndex = 37;
+            this.pictureOpenTaskSchd.TabStop = false;
+            this.pictureOpenTaskSchd.Click += new System.EventHandler(this.pictureOpenTaskSchd_Click);
+            // 
+            // pictureOpenPrograms
+            // 
+            this.pictureOpenPrograms.Image = global::VpsSetup.Properties.Resources.icon_Programs_32;
+            this.pictureOpenPrograms.Location = new System.Drawing.Point(170, 370);
+            this.pictureOpenPrograms.Name = "pictureOpenPrograms";
+            this.pictureOpenPrograms.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenPrograms.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenPrograms.TabIndex = 36;
+            this.pictureOpenPrograms.TabStop = false;
+            this.pictureOpenPrograms.Click += new System.EventHandler(this.pictureOpenPrograms_Click);
+            // 
+            // pictureOpenTaskMgr
+            // 
+            this.pictureOpenTaskMgr.Image = global::VpsSetup.Properties.Resources.icon_Task_Manager_32;
+            this.pictureOpenTaskMgr.Location = new System.Drawing.Point(50, 371);
+            this.pictureOpenTaskMgr.Name = "pictureOpenTaskMgr";
+            this.pictureOpenTaskMgr.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenTaskMgr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenTaskMgr.TabIndex = 35;
+            this.pictureOpenTaskMgr.TabStop = false;
+            this.pictureOpenTaskMgr.Click += new System.EventHandler(this.pictureOpenTaskMgr_Click);
+            // 
+            // pictureOpenControlPanel
+            // 
+            this.pictureOpenControlPanel.Image = global::VpsSetup.Properties.Resources.icon_Control_Panel_32;
+            this.pictureOpenControlPanel.Location = new System.Drawing.Point(130, 370);
+            this.pictureOpenControlPanel.Name = "pictureOpenControlPanel";
+            this.pictureOpenControlPanel.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenControlPanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenControlPanel.TabIndex = 34;
+            this.pictureOpenControlPanel.TabStop = false;
+            this.pictureOpenControlPanel.Click += new System.EventHandler(this.pictureOpenControlPanel_Click);
+            // 
+            // pictureOpenCmd
+            // 
+            this.pictureOpenCmd.Image = global::VpsSetup.Properties.Resources.icon_Command_Line_32;
+            this.pictureOpenCmd.Location = new System.Drawing.Point(10, 370);
+            this.pictureOpenCmd.Name = "pictureOpenCmd";
+            this.pictureOpenCmd.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenCmd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenCmd.TabIndex = 33;
+            this.pictureOpenCmd.TabStop = false;
+            this.pictureOpenCmd.Click += new System.EventHandler(this.pictureOpenCmd_Click);
+            // 
             // VpsSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 411);
+            this.Controls.Add(this.pictureOpenFirewall);
+            this.Controls.Add(this.pictureOpenTaskSchd);
+            this.Controls.Add(this.pictureOpenPrograms);
+            this.Controls.Add(this.pictureOpenTaskMgr);
+            this.Controls.Add(this.pictureOpenControlPanel);
+            this.Controls.Add(this.pictureOpenCmd);
             this.Controls.Add(this.checkSetupWinrar);
             this.Controls.Add(this.checkBlockUpdate);
             this.Controls.Add(this.buttonRandomPort);
@@ -351,6 +432,12 @@ namespace VpsSetup
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VpsSetup_FormClosing);
             this.Load += new System.EventHandler(this.VpsSetup_Load);
             this.Shown += new System.EventHandler(this.VpsSetup_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenPrograms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskMgr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenControlPanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenCmd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,6 +468,12 @@ namespace VpsSetup
         private System.Windows.Forms.Button buttonRandomPass;
         private System.Windows.Forms.CheckBox checkBlockUpdate;
         private System.Windows.Forms.CheckBox checkSetupWinrar;
+        private System.Windows.Forms.PictureBox pictureOpenCmd;
+        private System.Windows.Forms.PictureBox pictureOpenControlPanel;
+        private System.Windows.Forms.PictureBox pictureOpenTaskMgr;
+        private System.Windows.Forms.PictureBox pictureOpenPrograms;
+        private System.Windows.Forms.PictureBox pictureOpenTaskSchd;
+        private System.Windows.Forms.PictureBox pictureOpenFirewall;
     }
 }
 

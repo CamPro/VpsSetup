@@ -10,6 +10,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace VpsSetup
 {
@@ -205,33 +206,6 @@ namespace VpsSetup
             };
             var process = Process.Start(pp);
             process.WaitForExit(5000);
-        }
-
-        private void textPass_Click(object sender, EventArgs e)
-        {
-            textPass.SelectAll();
-            if (!string.IsNullOrEmpty(textPass.Text))
-            {
-                Clipboard.SetText(textPass.Text);
-            }
-        }
-
-        private void textUser_Click(object sender, EventArgs e)
-        {
-            textUser.SelectAll();
-            if (!string.IsNullOrEmpty(textUser.Text))
-            {
-                Clipboard.SetText(textUser.Text);
-            }
-        }
-
-        private void textPort_Click(object sender, EventArgs e)
-        {
-            textPort.SelectAll();
-            if (!string.IsNullOrEmpty(textPort.Text))
-            {
-                Clipboard.SetText(textPort.Text);
-            }
         }
 
         private void textInfoIP_Click(object sender, EventArgs e)
@@ -518,29 +492,39 @@ namespace VpsSetup
 
         private void checkSetupWinrar_Click(object sender, EventArgs e)
         {
-            string filename = toolboxs_folder + "\\WinRAR\\winrar-x32-624.exe";
-            if (File.Exists(filename))
+            string filename32 = toolboxs_folder + "\\WinRAR\\winrar-x32-624.exe";
+            string filename64 = toolboxs_folder + "\\WinRAR\\winrar-x64-624.exe";
+            string winrar64 = "C:\\Program Files\\WinRAR\\rarreg.key";
+            string winrar32 = "C:\\Program Files (x86)\\WinRAR\\rarreg.key";
+            if (File.Exists(winrar64) || File.Exists(winrar32))
             {
-                Process.Start(filename, "/S");
-                checkSetupWinrar.Checked = true;
-                checkSetupWinrar.ForeColor = Color.Blue;
+                checkSetupWinrar.Enabled = false;
+                return;
+            }
+            if (Environment.Is64BitOperatingSystem && File.Exists(filename64))
+            {
+                Process.Start(filename64, "/S");
+            }
+            else if (File.Exists(filename32))
+            {
+                Process.Start(filename32, "/S");
             }
             Thread.Sleep(1000);
-            filename = toolboxs_folder + "\\WinRAR\\rarreg.key";
-            if (File.Exists(filename))
+            string rarreg = toolboxs_folder + "\\WinRAR\\rarreg.key";
+            if (File.Exists(rarreg))
             {
-                string winrar64 = "C:\\Program Files\\WinRAR\\rarreg.key";
-                string winrar32 = "C:\\Program Files (x86)\\WinRAR\\rarreg.key";
-                if (File.Exists(winrar64)) File.Copy(filename, winrar64);
-                if (File.Exists(winrar32)) File.Copy(filename, winrar32);
+                if (File.Exists(winrar64)) File.Copy(rarreg, winrar64, true);
+                if (File.Exists(winrar32)) File.Copy(rarreg, winrar32, true);
             }
+            checkSetupWinrar.Checked = true;
+            checkSetupWinrar.ForeColor = Color.Blue;
         }
 
         private void checkFixCopy_Click(object sender, EventArgs e)
         {
             string rdpclip = @"C:\Windows\Sysnative\rdpclip.exe";
             taskkill("rdpclip.exe");
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
             if (File.Exists(rdpclip)) Process.Start(rdpclip);
             checkFixCopy.Checked = true;
             checkFixCopy.ForeColor = Color.Blue;
@@ -668,5 +652,34 @@ namespace VpsSetup
             new string[] {"Tonga Standard Time", "(GMT+13:00) Nuku'alofa", "Pacific/Tongatapu"}
         };
 
+        private void pictureOpenCmd_Click(object sender, EventArgs e)
+        {
+            Process.Start("cmd.exe");
+        }
+
+        private void pictureOpenControlPanel_Click(object sender, EventArgs e)
+        {
+            Process.Start("control.exe");
+        }
+
+        private void pictureOpenTaskMgr_Click(object sender, EventArgs e)
+        {
+            Process.Start("taskmgr.exe", "/7");
+        }
+
+        private void pictureOpenPrograms_Click(object sender, EventArgs e)
+        {
+            Process.Start("appwiz.cpl");
+        }
+
+        private void pictureOpenTaskSchd_Click(object sender, EventArgs e)
+        {
+            Process.Start("taskschd.msc", "/s");
+        }
+
+        private void pictureOpenFirewall_Click(object sender, EventArgs e)
+        {
+            Process.Start("WF.msc");
+        }
     }
 }
