@@ -75,7 +75,7 @@ namespace VpsSetup
             this.buttonCredSSP.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCredSSP.Name = "buttonCredSSP";
             this.buttonCredSSP.Size = new System.Drawing.Size(120, 28);
-            this.buttonCredSSP.TabIndex = 0;
+            this.buttonCredSSP.TabIndex = 21;
             this.buttonCredSSP.Text = "CredSSP";
             this.buttonCredSSP.UseVisualStyleBackColor = true;
             this.buttonCredSSP.Click += new System.EventHandler(this.buttonCredSSP_Click);
@@ -87,7 +87,7 @@ namespace VpsSetup
             this.checkSetupFirefox.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupFirefox.Name = "checkSetupFirefox";
             this.checkSetupFirefox.Size = new System.Drawing.Size(76, 24);
-            this.checkSetupFirefox.TabIndex = 4;
+            this.checkSetupFirefox.TabIndex = 7;
             this.checkSetupFirefox.Text = "Firefox";
             this.checkSetupFirefox.UseVisualStyleBackColor = true;
             this.checkSetupFirefox.Click += new System.EventHandler(this.checkSetupFirefox_Click);
@@ -99,7 +99,7 @@ namespace VpsSetup
             this.checkSetupChrome.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupChrome.Name = "checkSetupChrome";
             this.checkSetupChrome.Size = new System.Drawing.Size(84, 24);
-            this.checkSetupChrome.TabIndex = 5;
+            this.checkSetupChrome.TabIndex = 8;
             this.checkSetupChrome.Text = "Chrome";
             this.checkSetupChrome.UseVisualStyleBackColor = true;
             this.checkSetupChrome.Click += new System.EventHandler(this.checkSetupChrome_Click);
@@ -111,7 +111,7 @@ namespace VpsSetup
             this.checkSetupGeneral.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupGeneral.Name = "checkSetupGeneral";
             this.checkSetupGeneral.Size = new System.Drawing.Size(126, 24);
-            this.checkSetupGeneral.TabIndex = 6;
+            this.checkSetupGeneral.TabIndex = 2;
             this.checkSetupGeneral.Text = "Cài đặt chung";
             this.checkSetupGeneral.UseVisualStyleBackColor = true;
             this.checkSetupGeneral.Click += new System.EventHandler(this.checkSetupGeneral_Click);
@@ -123,7 +123,7 @@ namespace VpsSetup
             this.checkUpdateTime.Margin = new System.Windows.Forms.Padding(2);
             this.checkUpdateTime.Name = "checkUpdateTime";
             this.checkUpdateTime.Size = new System.Drawing.Size(157, 24);
-            this.checkUpdateTime.TabIndex = 7;
+            this.checkUpdateTime.TabIndex = 1;
             this.checkUpdateTime.Text = "Cập nhật thời gian";
             this.checkUpdateTime.UseVisualStyleBackColor = true;
             this.checkUpdateTime.Click += new System.EventHandler(this.checkUpdateTime_Click);
@@ -134,7 +134,7 @@ namespace VpsSetup
             this.textPass.Margin = new System.Windows.Forms.Padding(2);
             this.textPass.Name = "textPass";
             this.textPass.Size = new System.Drawing.Size(240, 26);
-            this.textPass.TabIndex = 9;
+            this.textPass.TabIndex = 12;
             this.textPass.TextChanged += new System.EventHandler(this.textPass_TextChanged);
             // 
             // buttonDnsJumper
@@ -143,7 +143,7 @@ namespace VpsSetup
             this.buttonDnsJumper.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDnsJumper.Name = "buttonDnsJumper";
             this.buttonDnsJumper.Size = new System.Drawing.Size(120, 28);
-            this.buttonDnsJumper.TabIndex = 10;
+            this.buttonDnsJumper.TabIndex = 22;
             this.buttonDnsJumper.Text = "DNS Jumper";
             this.buttonDnsJumper.UseVisualStyleBackColor = true;
             this.buttonDnsJumper.Click += new System.EventHandler(this.buttonDnsJumper_Click);
@@ -154,7 +154,7 @@ namespace VpsSetup
             this.buttonRestartVps.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRestartVps.Name = "buttonRestartVps";
             this.buttonRestartVps.Size = new System.Drawing.Size(120, 28);
-            this.buttonRestartVps.TabIndex = 11;
+            this.buttonRestartVps.TabIndex = 23;
             this.buttonRestartVps.Text = "Restart";
             this.buttonRestartVps.UseVisualStyleBackColor = true;
             this.buttonRestartVps.Click += new System.EventHandler(this.buttonRestartVps_Click);
@@ -165,7 +165,7 @@ namespace VpsSetup
             this.textUser.Margin = new System.Windows.Forms.Padding(2);
             this.textUser.Name = "textUser";
             this.textUser.Size = new System.Drawing.Size(240, 26);
-            this.textUser.TabIndex = 12;
+            this.textUser.TabIndex = 15;
             this.textUser.TextChanged += new System.EventHandler(this.textUser_TextChanged);
             // 
             // textPort
@@ -174,7 +174,7 @@ namespace VpsSetup
             this.textPort.Margin = new System.Windows.Forms.Padding(2);
             this.textPort.Name = "textPort";
             this.textPort.Size = new System.Drawing.Size(240, 26);
-            this.textPort.TabIndex = 13;
+            this.textPort.TabIndex = 18;
             this.textPort.TextChanged += new System.EventHandler(this.textPort_TextChanged);
             // 
             // checkDnsJumper
@@ -184,7 +184,7 @@ namespace VpsSetup
             this.checkDnsJumper.Margin = new System.Windows.Forms.Padding(2);
             this.checkDnsJumper.Name = "checkDnsJumper";
             this.checkDnsJumper.Size = new System.Drawing.Size(130, 24);
-            this.checkDnsJumper.TabIndex = 15;
+            this.checkDnsJumper.TabIndex = 3;
             this.checkDnsJumper.Text = "Dns cloudflare";
             this.checkDnsJumper.UseVisualStyleBackColor = true;
             this.checkDnsJumper.Click += new System.EventHandler(this.checkDnsJumper_Click);
@@ -197,7 +197,7 @@ namespace VpsSetup
             this.buttonSeftDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSeftDelete.Name = "buttonSeftDelete";
             this.buttonSeftDelete.Size = new System.Drawing.Size(28, 28);
-            this.buttonSeftDelete.TabIndex = 16;
+            this.buttonSeftDelete.TabIndex = 24;
             this.buttonSeftDelete.Text = "x";
             this.buttonSeftDelete.UseVisualStyleBackColor = true;
             this.buttonSeftDelete.Click += new System.EventHandler(this.buttonDelete_Click);
@@ -209,7 +209,7 @@ namespace VpsSetup
             this.checkInfoIP.Margin = new System.Windows.Forms.Padding(2);
             this.checkInfoIP.Name = "checkInfoIP";
             this.checkInfoIP.Size = new System.Drawing.Size(162, 24);
-            this.checkInfoIP.TabIndex = 17;
+            this.checkInfoIP.TabIndex = 4;
             this.checkInfoIP.Text = "Cập nhật timezone";
             this.checkInfoIP.UseVisualStyleBackColor = true;
             this.checkInfoIP.Click += new System.EventHandler(this.checkInfoIP_Click);
@@ -220,8 +220,7 @@ namespace VpsSetup
             this.textInfoIP.Margin = new System.Windows.Forms.Padding(2);
             this.textInfoIP.Name = "textInfoIP";
             this.textInfoIP.Size = new System.Drawing.Size(407, 26);
-            this.textInfoIP.TabIndex = 18;
-            this.textInfoIP.Click += new System.EventHandler(this.textInfoIP_Click);
+            this.textInfoIP.TabIndex = 0;
             // 
             // checkFixCopy
             // 
@@ -230,7 +229,7 @@ namespace VpsSetup
             this.checkFixCopy.Margin = new System.Windows.Forms.Padding(2);
             this.checkFixCopy.Name = "checkFixCopy";
             this.checkFixCopy.Size = new System.Drawing.Size(85, 24);
-            this.checkFixCopy.TabIndex = 0;
+            this.checkFixCopy.TabIndex = 6;
             this.checkFixCopy.Text = "Fix copy";
             this.checkFixCopy.UseVisualStyleBackColor = true;
             this.checkFixCopy.Click += new System.EventHandler(this.checkFixCopy_Click);
@@ -241,7 +240,7 @@ namespace VpsSetup
             this.buttonPass.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPass.Name = "buttonPass";
             this.buttonPass.Size = new System.Drawing.Size(120, 30);
-            this.buttonPass.TabIndex = 24;
+            this.buttonPass.TabIndex = 13;
             this.buttonPass.Text = "Change Pass";
             this.buttonPass.UseVisualStyleBackColor = true;
             this.buttonPass.Click += new System.EventHandler(this.buttonPass_Click);
@@ -252,7 +251,7 @@ namespace VpsSetup
             this.buttonUser.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(120, 30);
-            this.buttonUser.TabIndex = 25;
+            this.buttonUser.TabIndex = 16;
             this.buttonUser.Text = "Change User";
             this.buttonUser.UseVisualStyleBackColor = true;
             this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
@@ -263,7 +262,7 @@ namespace VpsSetup
             this.buttonPort.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPort.Name = "buttonPort";
             this.buttonPort.Size = new System.Drawing.Size(120, 30);
-            this.buttonPort.TabIndex = 26;
+            this.buttonPort.TabIndex = 19;
             this.buttonPort.Text = "Change Port";
             this.buttonPort.UseVisualStyleBackColor = true;
             this.buttonPort.Click += new System.EventHandler(this.buttonPort_Click);
@@ -274,7 +273,7 @@ namespace VpsSetup
             this.buttonRandomPort.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRandomPort.Name = "buttonRandomPort";
             this.buttonRandomPort.Size = new System.Drawing.Size(40, 30);
-            this.buttonRandomPort.TabIndex = 29;
+            this.buttonRandomPort.TabIndex = 17;
             this.buttonRandomPort.Text = "Rd";
             this.buttonRandomPort.UseVisualStyleBackColor = true;
             this.buttonRandomPort.Click += new System.EventHandler(this.buttonRandomPort_Click);
@@ -285,7 +284,7 @@ namespace VpsSetup
             this.buttonRandomUser.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRandomUser.Name = "buttonRandomUser";
             this.buttonRandomUser.Size = new System.Drawing.Size(40, 30);
-            this.buttonRandomUser.TabIndex = 28;
+            this.buttonRandomUser.TabIndex = 14;
             this.buttonRandomUser.Text = "Rd";
             this.buttonRandomUser.UseVisualStyleBackColor = true;
             this.buttonRandomUser.Click += new System.EventHandler(this.buttonRandomUser_Click);
@@ -296,7 +295,7 @@ namespace VpsSetup
             this.buttonRandomPass.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRandomPass.Name = "buttonRandomPass";
             this.buttonRandomPass.Size = new System.Drawing.Size(40, 30);
-            this.buttonRandomPass.TabIndex = 27;
+            this.buttonRandomPass.TabIndex = 11;
             this.buttonRandomPass.Text = "Rd";
             this.buttonRandomPass.UseVisualStyleBackColor = true;
             this.buttonRandomPass.Click += new System.EventHandler(this.buttonRandomPass_Click);
@@ -308,7 +307,7 @@ namespace VpsSetup
             this.checkBlockUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.checkBlockUpdate.Name = "checkBlockUpdate";
             this.checkBlockUpdate.Size = new System.Drawing.Size(121, 24);
-            this.checkBlockUpdate.TabIndex = 31;
+            this.checkBlockUpdate.TabIndex = 9;
             this.checkBlockUpdate.Text = "Block update";
             this.checkBlockUpdate.UseVisualStyleBackColor = true;
             this.checkBlockUpdate.Click += new System.EventHandler(this.checkBlockUpdate_Click);
@@ -320,7 +319,7 @@ namespace VpsSetup
             this.checkSetupWinrar.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupWinrar.Name = "checkSetupWinrar";
             this.checkSetupWinrar.Size = new System.Drawing.Size(74, 24);
-            this.checkSetupWinrar.TabIndex = 32;
+            this.checkSetupWinrar.TabIndex = 5;
             this.checkSetupWinrar.Text = "Winrar";
             this.checkSetupWinrar.UseVisualStyleBackColor = true;
             this.checkSetupWinrar.Click += new System.EventHandler(this.checkSetupWinrar_Click);

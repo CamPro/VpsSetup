@@ -208,16 +208,6 @@ namespace VpsSetup
             process.WaitForExit(5000);
         }
 
-        private void textInfoIP_Click(object sender, EventArgs e)
-        {
-            textInfoIP.SelectAll();
-            string text = textInfoIP.Text.Trim();
-            if (!string.IsNullOrEmpty(text))
-            {
-                Clipboard.SetText(text);
-            }
-        }
-
         private void buttonPass_Click(object sender, EventArgs e)
         {
             string pass = textPass.Text;
