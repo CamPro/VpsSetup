@@ -53,12 +53,14 @@ namespace VpsSetup
             this.buttonRandomPass = new System.Windows.Forms.Button();
             this.checkBlockUpdate = new System.Windows.Forms.CheckBox();
             this.checkSetupWinrar = new System.Windows.Forms.CheckBox();
+            this.pictureOpenStartup = new System.Windows.Forms.PictureBox();
             this.pictureOpenFirewall = new System.Windows.Forms.PictureBox();
             this.pictureOpenTaskSchd = new System.Windows.Forms.PictureBox();
             this.pictureOpenPrograms = new System.Windows.Forms.PictureBox();
             this.pictureOpenTaskMgr = new System.Windows.Forms.PictureBox();
             this.pictureOpenControlPanel = new System.Windows.Forms.PictureBox();
             this.pictureOpenCmd = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenStartup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenPrograms)).BeginInit();
@@ -323,6 +325,17 @@ namespace VpsSetup
             this.checkSetupWinrar.UseVisualStyleBackColor = true;
             this.checkSetupWinrar.Click += new System.EventHandler(this.checkSetupWinrar_Click);
             // 
+            // pictureOpenStartup
+            // 
+            this.pictureOpenStartup.Image = global::VpsSetup.Properties.Resources.icon_Startup_32;
+            this.pictureOpenStartup.Location = new System.Drawing.Point(250, 370);
+            this.pictureOpenStartup.Name = "pictureOpenStartup";
+            this.pictureOpenStartup.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenStartup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenStartup.TabIndex = 39;
+            this.pictureOpenStartup.TabStop = false;
+            this.pictureOpenStartup.Click += new System.EventHandler(this.pictureOpenStartup_Click);
+            // 
             // pictureOpenFirewall
             // 
             this.pictureOpenFirewall.Image = global::VpsSetup.Properties.Resources.icon_Firewall_32;
@@ -395,6 +408,7 @@ namespace VpsSetup
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 411);
+            this.Controls.Add(this.pictureOpenStartup);
             this.Controls.Add(this.pictureOpenFirewall);
             this.Controls.Add(this.pictureOpenTaskSchd);
             this.Controls.Add(this.pictureOpenPrograms);
@@ -432,6 +446,7 @@ namespace VpsSetup
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VpsSetup_FormClosing);
             this.Load += new System.EventHandler(this.VpsSetup_Load);
             this.Shown += new System.EventHandler(this.VpsSetup_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenStartup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenPrograms)).EndInit();
@@ -474,6 +489,7 @@ namespace VpsSetup
         private System.Windows.Forms.PictureBox pictureOpenPrograms;
         private System.Windows.Forms.PictureBox pictureOpenTaskSchd;
         private System.Windows.Forms.PictureBox pictureOpenFirewall;
+        private System.Windows.Forms.PictureBox pictureOpenStartup;
     }
 }
 

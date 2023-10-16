@@ -58,7 +58,7 @@ namespace VpsSetup
             if (!Directory.Exists(toolboxs_folder) && !Directory.Exists(toolboxs_document))
             {
                 Task backgroud = new Task(() => {
-                    string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/VpsSetup/tools.zip";
+                    string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/VpsSetup/tools.zip?t=" + random.Next(1,100);
                     string local_tools = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tools.zip";
                     string document = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                     client.DownloadFile(remote_tools, local_tools);
@@ -680,6 +680,15 @@ namespace VpsSetup
         private void pictureOpenFirewall_Click(object sender, EventArgs e)
         {
             Process.Start("WF.msc");
+        }
+
+        private void pictureOpenStartup_Click(object sender, EventArgs e)
+        {
+            string filename = toolboxs_folder + "\\StartupManager\\StartupManager.exe";
+            if (File.Exists(filename))
+            {
+                Process process = Process.Start(filename);
+            }
         }
     }
 }

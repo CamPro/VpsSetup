@@ -113,6 +113,16 @@ namespace VpsSetup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_Startup_32 {
+            get {
+                object obj = ResourceManager.GetObject("icon-Startup.32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_Task_Manager_32 {
             get {
                 object obj = ResourceManager.GetObject("icon-Task-Manager.32", resourceCulture);
