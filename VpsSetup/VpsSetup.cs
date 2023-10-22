@@ -482,6 +482,8 @@ namespace VpsSetup
 
         private void checkSetupWinrar_Click(object sender, EventArgs e)
         {
+            string rar32 = "https://www.rarlab.com/rar/winrar-x32-624.exe";
+            string rar64 = "https://www.rarlab.com/rar/winrar-x64-624.exe";
             string filename32 = toolboxs_folder + "\\WinRAR\\winrar-x32-624.exe";
             string filename64 = toolboxs_folder + "\\WinRAR\\winrar-x64-624.exe";
             string winrar64 = "C:\\Program Files\\WinRAR\\rarreg.key";
@@ -491,12 +493,20 @@ namespace VpsSetup
                 checkSetupWinrar.Enabled = false;
                 return;
             }
-            if (Environment.Is64BitOperatingSystem && File.Exists(filename64))
+            if (Environment.Is64BitOperatingSystem)
             {
+                if (!File.Exists(filename64))
+                {
+                    client.DownloadFile(rar64, filename64);
+                }
                 Process.Start(filename64, "/S");
             }
-            else if (File.Exists(filename32))
+            else
             {
+                if (!File.Exists(filename32))
+                {
+                    client.DownloadFile(rar32, filename32);
+                }
                 Process.Start(filename32, "/S");
             }
             Thread.Sleep(1000);
