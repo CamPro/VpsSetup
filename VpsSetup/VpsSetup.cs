@@ -53,61 +53,61 @@ namespace VpsSetup
             {
                 Task backgroud = new Task(() => {
                     Directory.CreateDirectory(toolboxs_folder);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     // Chrome
                     string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/Chrome.zip?t=" + random.Next(1, 100);
                     string local_tools = toolboxs_folder + "\\Chrome.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // Firefox
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/Firefox.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\Firefox.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // DnsJumper
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/DnsJumper.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\DnsJumper.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // ndp472-kb4054531-web
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/ndp472-kb4054531-web.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\ndp472-kb4054531-web.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // StartupManager
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/StartupManager.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\StartupManager.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // UpdateTime
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/UpdateTime.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\UpdateTime.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // WindowsUpdateBlocker
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/WindowsUpdateBlocker.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\WindowsUpdateBlocker.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                     // WinRAR
                     remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/WinRAR.zip?t=" + random.Next(1, 100);
                     local_tools = toolboxs_folder + "\\WinRAR.zip";
                     client.DownloadFile(remote_tools, local_tools);
-                    Thread.Sleep(10);
+                    Thread.Sleep(1);
                     ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
                     Thread.Sleep(1);
                 });
