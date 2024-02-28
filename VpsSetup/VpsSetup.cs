@@ -58,6 +58,9 @@ namespace VpsSetup
             if (!Directory.Exists(toolboxs_folder) && !Directory.Exists(toolboxs_document))
             {
                 Task backgroud = new Task(() => {
+                    Directory.CreateDirectory(toolboxs_folder);
+                    Thread.Sleep(10);
+
                     string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/VpsSetup/tools.zip?t=" + random.Next(1,100);
                     string local_tools = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tools.zip";
                     string document = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -378,6 +381,9 @@ namespace VpsSetup
             reg("ADD \"HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v EnableAutoTray /t REG_DWORD /d 0 /f");
             // setup desktop background
             string filedesktop = toolboxs_folder + "\\desktop.jpg";
+            // down random image
+            client.DownloadFile("https://picsum.photos/1366/768", filedesktop);
+            Thread.Sleep(10);
             string filename = "C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg";
             if (File.Exists(filename) && File.Exists(filedesktop))
             {
