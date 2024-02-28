@@ -14,10 +14,9 @@ using System.Xml.Linq;
 
 namespace VpsSetup
 {
-
     public partial class VpsSetup : Form
     {
-        private double appVersion = 1.0;
+        private double appVersion = 1.1;
 
         [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
         [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
@@ -28,7 +27,7 @@ namespace VpsSetup
 
         private Random random = new Random();
         WebClient client = new WebClient();
-        string toolboxs_folder = Application.StartupPath + "\\tools";
+        string toolboxs_folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tools";
 
         private List<string> chars = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
         private List<string> words = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
@@ -50,26 +49,67 @@ namespace VpsSetup
             textUser.Text = Environment.UserName;
             textPort.Text = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp").GetValue("PortNumber").ToString();
             client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.0000.000 Safari/537.36");
-            string toolboxs_document = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tools";
-            if (Directory.Exists(toolboxs_document))
-            {
-                toolboxs_folder = toolboxs_document;
-            }
-            if (!Directory.Exists(toolboxs_folder) && !Directory.Exists(toolboxs_document))
+            if (!Directory.Exists(toolboxs_folder))
             {
                 Task backgroud = new Task(() => {
                     Directory.CreateDirectory(toolboxs_folder);
                     Thread.Sleep(10);
-
-                    string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/VpsSetup/tools.zip?t=" + random.Next(1,100);
-                    string local_tools = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\tools.zip";
-                    string document = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    // Chrome
+                    string remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/Chrome.zip?t=" + random.Next(1, 100);
+                    string local_tools = toolboxs_folder + "\\Chrome.zip";
                     client.DownloadFile(remote_tools, local_tools);
                     Thread.Sleep(10);
-                    ZipFile.ExtractToDirectory(local_tools, document);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // Firefox
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/Firefox.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\Firefox.zip";
+                    client.DownloadFile(remote_tools, local_tools);
                     Thread.Sleep(10);
-                    File.Delete(local_tools);
-                    toolboxs_folder = toolboxs_document;
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // DnsJumper
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/DnsJumper.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\DnsJumper.zip";
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // ndp472-kb4054531-web
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/ndp472-kb4054531-web.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\ndp472-kb4054531-web.zip";
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // StartupManager
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/StartupManager.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\StartupManager.zip";
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // UpdateTime
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/UpdateTime.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\UpdateTime.zip";
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // WindowsUpdateBlocker
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/WindowsUpdateBlocker.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\WindowsUpdateBlocker.zip";
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
+                    // WinRAR
+                    remote_tools = "https://github.com/CamPro/VpsSetup/raw/main/tools/WinRAR.zip?t=" + random.Next(1, 100);
+                    local_tools = toolboxs_folder + "\\WinRAR.zip";
+                    client.DownloadFile(remote_tools, local_tools);
+                    Thread.Sleep(10);
+                    ZipFile.ExtractToDirectory(local_tools, toolboxs_folder);
+                    Thread.Sleep(1);
                 });
                 backgroud.Start();
             }
@@ -293,7 +333,7 @@ namespace VpsSetup
         private void checkSetupFirefox_Click(object sender, EventArgs e)
         {
             // setup firefox
-            string filename = toolboxs_folder + "\\Firefox\\Firefox Installer.exe";
+            string filename = toolboxs_folder + "\\Firefox Installer.exe";
             if (File.Exists(filename))
             {
                 Process.Start(filename);
@@ -316,13 +356,13 @@ namespace VpsSetup
                     }
                     taskkill("firefox.exe");
                     // copy bookmark
-                    filename = toolboxs_folder + "\\Firefox\\places.sqlite";
+                    filename = toolboxs_folder + "\\places.sqlite";
                     if (File.Exists(filename))
                     {
                         File.Copy(filename, firefox + "\\places.sqlite", true);
                     }
                     // copy settings
-                    filename = toolboxs_folder + "\\Firefox\\prefs.js";
+                    filename = toolboxs_folder + "\\prefs.js";
                     if (File.Exists(filename))
                     {
                         File.Copy(filename, firefox + "\\prefs.js", true);
@@ -340,19 +380,19 @@ namespace VpsSetup
             string chrome = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Google\\Chrome\\User Data\\Default";
             if (!Directory.Exists(chrome)) Directory.CreateDirectory(chrome);
             // copy Bookmarks
-            string filename = toolboxs_folder + "\\Chrome\\Bookmarks";
+            string filename = toolboxs_folder + "\\Bookmarks";
             if (File.Exists(filename))
             {
                 File.Copy(filename, chrome + "\\Bookmarks", true);
             }
             // copy preferences
-            filename = toolboxs_folder + "\\Chrome\\Preferences";
+            filename = toolboxs_folder + "\\Preferences";
             if (File.Exists(filename))
             {
                 File.Copy(filename, chrome + "\\Preferences", true);
             }
             // setup Chrome
-            filename = toolboxs_folder + "\\Chrome\\ChromeSetup.exe";
+            filename = toolboxs_folder + "\\ChromeSetup.exe";
             Process.Start(filename);
             checkSetupChrome.Checked = true;
             checkSetupChrome.ForeColor = Color.Blue;
@@ -360,7 +400,7 @@ namespace VpsSetup
 
         private void checkDnsJumper_Click(object sender, EventArgs e)
         {
-            string filename = toolboxs_folder + "\\DnsJumper\\DnsJumper.exe";
+            string filename = toolboxs_folder + "\\DnsJumper.exe";
             if (File.Exists(filename))
             {
                 Process process = Process.Start(filename, "1.1.1.1,1.0.0.1");
@@ -433,7 +473,7 @@ namespace VpsSetup
 
         private void checkUpdateTime_Click(object sender, EventArgs e)
         {
-            string filename = toolboxs_folder + "\\UpdateTime\\UpdateTime.exe";
+            string filename = toolboxs_folder + "\\UpdateTime.exe";
             if (File.Exists(filename))
             {
                 Process process = Process.Start(filename);
@@ -490,8 +530,8 @@ namespace VpsSetup
         {
             string rar32 = "https://www.rarlab.com/rar/winrar-x32-624.exe";
             string rar64 = "https://www.rarlab.com/rar/winrar-x64-624.exe";
-            string filename32 = toolboxs_folder + "\\WinRAR\\winrar-x32-624.exe";
-            string filename64 = toolboxs_folder + "\\WinRAR\\winrar-x64-624.exe";
+            string filename32 = toolboxs_folder + "\\winrar-x32-624.exe";
+            string filename64 = toolboxs_folder + "\\winrar-x64-624.exe";
             string winrar64 = "C:\\Program Files\\WinRAR\\rarreg.key";
             string winrar32 = "C:\\Program Files (x86)\\WinRAR\\rarreg.key";
             if (File.Exists(winrar64) || File.Exists(winrar32))
@@ -516,7 +556,7 @@ namespace VpsSetup
                 Process.Start(filename32, "/S");
             }
             Thread.Sleep(1000);
-            string rarreg = toolboxs_folder + "\\WinRAR\\rarreg.key";
+            string rarreg = toolboxs_folder + "\\rarreg.key";
             if (File.Exists(rarreg))
             {
                 if (File.Exists(winrar64)) File.Copy(rarreg, winrar64, true);
@@ -538,12 +578,23 @@ namespace VpsSetup
 
         private void checkBlockUpdate_Click(object sender, EventArgs e)
         {
-            string filename = toolboxs_folder + "\\Wub\\Wub.exe";
+            string filename = toolboxs_folder + "\\Wub.exe";
             if (File.Exists(filename))
             {
                 Process.Start(filename, "/D /P");
                 checkBlockUpdate.Checked = true;
                 checkBlockUpdate.ForeColor = Color.Blue;
+            }
+        }
+
+        private void checkSetupNet472_Click(object sender, EventArgs e)
+        {
+            string filename = toolboxs_folder + "\\ndp472-kb4054531-web.exe";
+            if (File.Exists(filename))
+            {
+                Process.Start(filename, "/q /norestart");
+                checkSetupNet472.Checked = true;
+                checkSetupNet472.ForeColor = Color.Blue;
             }
         }
 
@@ -560,7 +611,7 @@ namespace VpsSetup
 
         private void buttonDnsJumper_Click(object sender, EventArgs e)
         {
-            string filename = toolboxs_folder + "\\DnsJumper\\DnsJumper.exe";
+            string filename = toolboxs_folder + "\\DnsJumper.exe";
             if (File.Exists(filename))
             {
                 Process.Start(filename);
@@ -690,11 +741,12 @@ namespace VpsSetup
 
         private void pictureOpenStartup_Click(object sender, EventArgs e)
         {
-            string filename = toolboxs_folder + "\\StartupManager\\StartupManager.exe";
+            string filename = toolboxs_folder + "\\StartupManager.exe";
             if (File.Exists(filename))
             {
                 Process process = Process.Start(filename);
             }
         }
+
     }
 }

@@ -60,6 +60,7 @@ namespace VpsSetup
             this.pictureOpenTaskMgr = new System.Windows.Forms.PictureBox();
             this.pictureOpenControlPanel = new System.Windows.Forms.PictureBox();
             this.pictureOpenCmd = new System.Windows.Forms.PictureBox();
+            this.checkSetupNet472 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenStartup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).BeginInit();
@@ -83,7 +84,7 @@ namespace VpsSetup
             // checkSetupFirefox
             // 
             this.checkSetupFirefox.AutoSize = true;
-            this.checkSetupFirefox.Location = new System.Drawing.Point(220, 180);
+            this.checkSetupFirefox.Location = new System.Drawing.Point(191, 180);
             this.checkSetupFirefox.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupFirefox.Name = "checkSetupFirefox";
             this.checkSetupFirefox.Size = new System.Drawing.Size(76, 24);
@@ -303,7 +304,7 @@ namespace VpsSetup
             // checkBlockUpdate
             // 
             this.checkBlockUpdate.AutoSize = true;
-            this.checkBlockUpdate.Location = new System.Drawing.Point(220, 220);
+            this.checkBlockUpdate.Location = new System.Drawing.Point(191, 220);
             this.checkBlockUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.checkBlockUpdate.Name = "checkBlockUpdate";
             this.checkBlockUpdate.Size = new System.Drawing.Size(121, 24);
@@ -315,7 +316,7 @@ namespace VpsSetup
             // checkSetupWinrar
             // 
             this.checkSetupWinrar.AutoSize = true;
-            this.checkSetupWinrar.Location = new System.Drawing.Point(220, 140);
+            this.checkSetupWinrar.Location = new System.Drawing.Point(191, 140);
             this.checkSetupWinrar.Margin = new System.Windows.Forms.Padding(2);
             this.checkSetupWinrar.Name = "checkSetupWinrar";
             this.checkSetupWinrar.Size = new System.Drawing.Size(74, 24);
@@ -401,12 +402,25 @@ namespace VpsSetup
             this.pictureOpenCmd.TabStop = false;
             this.pictureOpenCmd.Click += new System.EventHandler(this.pictureOpenCmd_Click);
             // 
+            // checkSetupNet472
+            // 
+            this.checkSetupNet472.AutoSize = true;
+            this.checkSetupNet472.Location = new System.Drawing.Point(330, 220);
+            this.checkSetupNet472.Margin = new System.Windows.Forms.Padding(2);
+            this.checkSetupNet472.Name = "checkSetupNet472";
+            this.checkSetupNet472.Size = new System.Drawing.Size(92, 24);
+            this.checkSetupNet472.TabIndex = 40;
+            this.checkSetupNet472.Text = "Net 4.7.2";
+            this.checkSetupNet472.UseVisualStyleBackColor = true;
+            this.checkSetupNet472.Click += new System.EventHandler(this.checkSetupNet472_Click);
+            // 
             // VpsSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 411);
+            this.Controls.Add(this.checkSetupNet472);
             this.Controls.Add(this.pictureOpenStartup);
             this.Controls.Add(this.pictureOpenFirewall);
             this.Controls.Add(this.pictureOpenTaskSchd);
@@ -489,6 +503,7 @@ namespace VpsSetup
         private System.Windows.Forms.PictureBox pictureOpenTaskSchd;
         private System.Windows.Forms.PictureBox pictureOpenFirewall;
         private System.Windows.Forms.PictureBox pictureOpenStartup;
+        private System.Windows.Forms.CheckBox checkSetupNet472;
     }
 }
 
