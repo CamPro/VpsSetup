@@ -508,34 +508,11 @@ namespace VpsSetup
             reg("ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v Hidden /t REG_DWORD /d 1 /f");
             reg("ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v ShowSuperHidden /t REG_DWORD /d 1 /f");
             reg("ADD \"HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v EnableAutoTray /t REG_DWORD /d 0 /f");
-            // setup desktop background
-            string filedesktop = toolboxs_folder + "\\desktop.jpg";
-            // down random image
-            client.DownloadFile("https://picsum.photos/1366/768", filedesktop);
-            Thread.Sleep(10);
-            string filename = "C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg";
-            if (File.Exists(filename) && File.Exists(filedesktop))
-            {
-                takeown(" /d y /r /a /f C:\\Windows\\Web\\Wallpaper\\Windows");
-                cacls($"{filename} /t /e /g Administrators:f");
-                File.Delete(filename);
-                File.Copy(filedesktop, filename, true);
-                DesktopPicture(filename);
-            }
-            filename = "C:\\Windows\\Web\\Screen\\img100.jpg";
-            if (File.Exists(filename) && File.Exists(filedesktop))
-            {
-                takeown(" /d y /r /a /f C:\\Windows\\Web\\Screen");
-                cacls($"{filename} /t /e /g Administrators:f");
-                File.Delete(filename);
-                File.Copy(filedesktop, filename, true);
-                DesktopPicture(filename);
-            }
 
             // delete Internet Explorer
             takeown(" /d y /r /a /f \"C:\\Program Files\\Internet Explorer\"");
             takeown(" /d y /r /a /f \"C:\\Program Files (x86)\\Internet Explorer\"");
-            filename = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
+            string filename = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
             if (File.Exists(filename))
             {
                 cacls($"\"{filename}\" /t /e /g Administrators:f");
@@ -861,5 +838,33 @@ namespace VpsSetup
             }
         }
 
+        private void checkSetupDesktop_Click(object sender, EventArgs e)
+        {
+            // setup desktop background
+            string filedesktop = toolboxs_folder + "\\desktop.jpg";
+            // down random image
+            client.DownloadFile("https://source.unsplash.com/random/1366x768", filedesktop);
+            Thread.Sleep(1);
+            string filename = "C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg";
+            if (File.Exists(filename) && File.Exists(filedesktop))
+            {
+                takeown(" /d y /r /a /f C:\\Windows\\Web\\Wallpaper\\Windows");
+                cacls($"{filename} /t /e /g Administrators:f");
+                File.Delete(filename);
+                File.Copy(filedesktop, filename, true);
+                DesktopPicture(filename);
+            }
+            filename = "C:\\Windows\\Web\\Screen\\img100.jpg";
+            if (File.Exists(filename) && File.Exists(filedesktop))
+            {
+                takeown(" /d y /r /a /f C:\\Windows\\Web\\Screen");
+                cacls($"{filename} /t /e /g Administrators:f");
+                File.Delete(filename);
+                File.Copy(filedesktop, filename, true);
+                DesktopPicture(filename);
+            }
+            checkSetupDesktop.Checked = true;
+            checkSetupDesktop.ForeColor = Color.Blue;
+        }
     }
 }

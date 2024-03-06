@@ -61,6 +61,7 @@ namespace VpsSetup
             this.pictureOpenControlPanel = new System.Windows.Forms.PictureBox();
             this.pictureOpenCmd = new System.Windows.Forms.PictureBox();
             this.checkSetupNet472 = new System.Windows.Forms.CheckBox();
+            this.checkSetupDesktop = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenStartup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).BeginInit();
@@ -414,12 +415,25 @@ namespace VpsSetup
             this.checkSetupNet472.UseVisualStyleBackColor = true;
             this.checkSetupNet472.Click += new System.EventHandler(this.checkSetupNet472_Click);
             // 
+            // checkSetupDesktop
+            // 
+            this.checkSetupDesktop.AutoSize = true;
+            this.checkSetupDesktop.Location = new System.Drawing.Point(191, 260);
+            this.checkSetupDesktop.Margin = new System.Windows.Forms.Padding(2);
+            this.checkSetupDesktop.Name = "checkSetupDesktop";
+            this.checkSetupDesktop.Size = new System.Drawing.Size(88, 24);
+            this.checkSetupDesktop.TabIndex = 41;
+            this.checkSetupDesktop.Text = "Desktop";
+            this.checkSetupDesktop.UseVisualStyleBackColor = true;
+            this.checkSetupDesktop.Click += new System.EventHandler(this.checkSetupDesktop_Click);
+            // 
             // VpsSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 411);
+            this.Controls.Add(this.checkSetupDesktop);
             this.Controls.Add(this.checkSetupNet472);
             this.Controls.Add(this.pictureOpenStartup);
             this.Controls.Add(this.pictureOpenFirewall);
@@ -504,6 +518,7 @@ namespace VpsSetup
         private System.Windows.Forms.PictureBox pictureOpenFirewall;
         private System.Windows.Forms.PictureBox pictureOpenStartup;
         private System.Windows.Forms.CheckBox checkSetupNet472;
+        private System.Windows.Forms.CheckBox checkSetupDesktop;
     }
 }
 
