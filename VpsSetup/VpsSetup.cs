@@ -680,6 +680,35 @@ namespace VpsSetup
             }
         }
 
+        private void checkSetupDesktop_Click(object sender, EventArgs e)
+        {
+            // setup desktop background
+            string filedesktop = toolboxs_folder + "\\desktop.jpg";
+            // down random image
+            client.DownloadFile("https://source.unsplash.com/random/1366x768", filedesktop);
+            Thread.Sleep(1);
+            string filename = "C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg";
+            if (File.Exists(filename) && File.Exists(filedesktop))
+            {
+                takeown(" /d y /r /a /f C:\\Windows\\Web\\Wallpaper\\Windows");
+                cacls($"{filename} /t /e /g Administrators:f");
+                File.Delete(filename);
+                File.Copy(filedesktop, filename, true);
+                DesktopPicture(filename);
+            }
+            filename = "C:\\Windows\\Web\\Screen\\img100.jpg";
+            if (File.Exists(filename) && File.Exists(filedesktop))
+            {
+                takeown(" /d y /r /a /f C:\\Windows\\Web\\Screen");
+                cacls($"{filename} /t /e /g Administrators:f");
+                File.Delete(filename);
+                File.Copy(filedesktop, filename, true);
+                DesktopPicture(filename);
+            }
+            checkSetupDesktop.Checked = true;
+            checkSetupDesktop.ForeColor = Color.Blue;
+        }
+
         private void buttonCredSSP_Click(object sender, EventArgs e)
         {
             reg("ADD \"HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\CredSSP\\Parameters\" / f / v AllowEncryptionOracle / t REG_DWORD / d 2");
@@ -711,6 +740,54 @@ namespace VpsSetup
             File.WriteAllText(script, delete);
             Process.Start(new ProcessStartInfo() {FileName = script, WindowStyle = ProcessWindowStyle.Hidden });
             Application.Exit();
+        }
+
+        private void pictureOpenCmd_Click(object sender, EventArgs e)
+        {
+            Process.Start("cmd.exe");
+        }
+
+        private void pictureOpenControlPanel_Click(object sender, EventArgs e)
+        {
+            Process.Start("control.exe");
+        }
+
+        private void pictureOpenTaskMgr_Click(object sender, EventArgs e)
+        {
+            Process.Start("taskmgr.exe", "/7");
+        }
+
+        private void pictureOpenPrograms_Click(object sender, EventArgs e)
+        {
+            Process.Start("appwiz.cpl");
+        }
+
+        private void pictureOpenTaskSchd_Click(object sender, EventArgs e)
+        {
+            Process.Start("taskschd.msc", "/s");
+        }
+
+        private void pictureOpenFirewall_Click(object sender, EventArgs e)
+        {
+            Process.Start("WF.msc");
+        }
+
+        private void pictureOpenStartup_Click(object sender, EventArgs e)
+        {
+            string filename = toolboxs_folder + "\\StartupManager.exe";
+            if (!File.Exists(filename))
+            {
+                downloadStartupManager();
+            }
+            if (File.Exists(filename))
+            {
+                Process process = Process.Start(filename);
+            }
+        }
+
+        private void pictureOpenWindef_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", "windowsdefender:");
         }
 
         private List<string[]> timeZones = new List<string[]>()
@@ -795,76 +872,5 @@ namespace VpsSetup
             new string[] {"Tonga Standard Time", "(GMT+13:00) Nuku'alofa", "Pacific/Tongatapu"}
         };
 
-        private void pictureOpenCmd_Click(object sender, EventArgs e)
-        {
-            Process.Start("cmd.exe");
-        }
-
-        private void pictureOpenControlPanel_Click(object sender, EventArgs e)
-        {
-            Process.Start("control.exe");
-        }
-
-        private void pictureOpenTaskMgr_Click(object sender, EventArgs e)
-        {
-            Process.Start("taskmgr.exe", "/7");
-        }
-
-        private void pictureOpenPrograms_Click(object sender, EventArgs e)
-        {
-            Process.Start("appwiz.cpl");
-        }
-
-        private void pictureOpenTaskSchd_Click(object sender, EventArgs e)
-        {
-            Process.Start("taskschd.msc", "/s");
-        }
-
-        private void pictureOpenFirewall_Click(object sender, EventArgs e)
-        {
-            Process.Start("WF.msc");
-        }
-
-        private void pictureOpenStartup_Click(object sender, EventArgs e)
-        {
-            string filename = toolboxs_folder + "\\StartupManager.exe";
-            if (!File.Exists(filename))
-            {
-                downloadStartupManager();
-            }
-            if (File.Exists(filename))
-            {
-                Process process = Process.Start(filename);
-            }
-        }
-
-        private void checkSetupDesktop_Click(object sender, EventArgs e)
-        {
-            // setup desktop background
-            string filedesktop = toolboxs_folder + "\\desktop.jpg";
-            // down random image
-            client.DownloadFile("https://source.unsplash.com/random/1366x768", filedesktop);
-            Thread.Sleep(1);
-            string filename = "C:\\Windows\\Web\\Wallpaper\\Windows\\img0.jpg";
-            if (File.Exists(filename) && File.Exists(filedesktop))
-            {
-                takeown(" /d y /r /a /f C:\\Windows\\Web\\Wallpaper\\Windows");
-                cacls($"{filename} /t /e /g Administrators:f");
-                File.Delete(filename);
-                File.Copy(filedesktop, filename, true);
-                DesktopPicture(filename);
-            }
-            filename = "C:\\Windows\\Web\\Screen\\img100.jpg";
-            if (File.Exists(filename) && File.Exists(filedesktop))
-            {
-                takeown(" /d y /r /a /f C:\\Windows\\Web\\Screen");
-                cacls($"{filename} /t /e /g Administrators:f");
-                File.Delete(filename);
-                File.Copy(filedesktop, filename, true);
-                DesktopPicture(filename);
-            }
-            checkSetupDesktop.Checked = true;
-            checkSetupDesktop.ForeColor = Color.Blue;
-        }
     }
 }

@@ -124,6 +124,9 @@
   <data name="icon-Scheduled-Tasks.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-Scheduled-Tasks.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon-Startup.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-Startup.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon-Command-Line.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-Command-Line.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="icon-Task-Manager.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-Task-Manager.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon-Startup.32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-Startup.32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon-windows-defender-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-windows-defender-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -53,6 +53,8 @@ namespace VpsSetup
             this.buttonRandomPass = new System.Windows.Forms.Button();
             this.checkBlockUpdate = new System.Windows.Forms.CheckBox();
             this.checkSetupWinrar = new System.Windows.Forms.CheckBox();
+            this.checkSetupNet472 = new System.Windows.Forms.CheckBox();
+            this.checkSetupDesktop = new System.Windows.Forms.CheckBox();
             this.pictureOpenStartup = new System.Windows.Forms.PictureBox();
             this.pictureOpenFirewall = new System.Windows.Forms.PictureBox();
             this.pictureOpenTaskSchd = new System.Windows.Forms.PictureBox();
@@ -60,8 +62,7 @@ namespace VpsSetup
             this.pictureOpenTaskMgr = new System.Windows.Forms.PictureBox();
             this.pictureOpenControlPanel = new System.Windows.Forms.PictureBox();
             this.pictureOpenCmd = new System.Windows.Forms.PictureBox();
-            this.checkSetupNet472 = new System.Windows.Forms.CheckBox();
-            this.checkSetupDesktop = new System.Windows.Forms.CheckBox();
+            this.pictureOpenWindef = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenStartup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenFirewall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskSchd)).BeginInit();
@@ -69,6 +70,7 @@ namespace VpsSetup
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskMgr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenControlPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenCmd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenWindef)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCredSSP
@@ -326,10 +328,34 @@ namespace VpsSetup
             this.checkSetupWinrar.UseVisualStyleBackColor = true;
             this.checkSetupWinrar.Click += new System.EventHandler(this.checkSetupWinrar_Click);
             // 
+            // checkSetupNet472
+            // 
+            this.checkSetupNet472.AutoSize = true;
+            this.checkSetupNet472.Location = new System.Drawing.Point(330, 220);
+            this.checkSetupNet472.Margin = new System.Windows.Forms.Padding(2);
+            this.checkSetupNet472.Name = "checkSetupNet472";
+            this.checkSetupNet472.Size = new System.Drawing.Size(92, 24);
+            this.checkSetupNet472.TabIndex = 40;
+            this.checkSetupNet472.Text = "Net 4.7.2";
+            this.checkSetupNet472.UseVisualStyleBackColor = true;
+            this.checkSetupNet472.Click += new System.EventHandler(this.checkSetupNet472_Click);
+            // 
+            // checkSetupDesktop
+            // 
+            this.checkSetupDesktop.AutoSize = true;
+            this.checkSetupDesktop.Location = new System.Drawing.Point(191, 260);
+            this.checkSetupDesktop.Margin = new System.Windows.Forms.Padding(2);
+            this.checkSetupDesktop.Name = "checkSetupDesktop";
+            this.checkSetupDesktop.Size = new System.Drawing.Size(88, 24);
+            this.checkSetupDesktop.TabIndex = 41;
+            this.checkSetupDesktop.Text = "Desktop";
+            this.checkSetupDesktop.UseVisualStyleBackColor = true;
+            this.checkSetupDesktop.Click += new System.EventHandler(this.checkSetupDesktop_Click);
+            // 
             // pictureOpenStartup
             // 
             this.pictureOpenStartup.Image = global::VpsSetup.Properties.Resources.icon_Startup_32;
-            this.pictureOpenStartup.Location = new System.Drawing.Point(250, 370);
+            this.pictureOpenStartup.Location = new System.Drawing.Point(290, 370);
             this.pictureOpenStartup.Name = "pictureOpenStartup";
             this.pictureOpenStartup.Size = new System.Drawing.Size(28, 28);
             this.pictureOpenStartup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -403,29 +429,16 @@ namespace VpsSetup
             this.pictureOpenCmd.TabStop = false;
             this.pictureOpenCmd.Click += new System.EventHandler(this.pictureOpenCmd_Click);
             // 
-            // checkSetupNet472
+            // pictureOpenWindef
             // 
-            this.checkSetupNet472.AutoSize = true;
-            this.checkSetupNet472.Location = new System.Drawing.Point(330, 220);
-            this.checkSetupNet472.Margin = new System.Windows.Forms.Padding(2);
-            this.checkSetupNet472.Name = "checkSetupNet472";
-            this.checkSetupNet472.Size = new System.Drawing.Size(92, 24);
-            this.checkSetupNet472.TabIndex = 40;
-            this.checkSetupNet472.Text = "Net 4.7.2";
-            this.checkSetupNet472.UseVisualStyleBackColor = true;
-            this.checkSetupNet472.Click += new System.EventHandler(this.checkSetupNet472_Click);
-            // 
-            // checkSetupDesktop
-            // 
-            this.checkSetupDesktop.AutoSize = true;
-            this.checkSetupDesktop.Location = new System.Drawing.Point(191, 260);
-            this.checkSetupDesktop.Margin = new System.Windows.Forms.Padding(2);
-            this.checkSetupDesktop.Name = "checkSetupDesktop";
-            this.checkSetupDesktop.Size = new System.Drawing.Size(88, 24);
-            this.checkSetupDesktop.TabIndex = 41;
-            this.checkSetupDesktop.Text = "Desktop";
-            this.checkSetupDesktop.UseVisualStyleBackColor = true;
-            this.checkSetupDesktop.Click += new System.EventHandler(this.checkSetupDesktop_Click);
+            this.pictureOpenWindef.Image = global::VpsSetup.Properties.Resources.icon_windows_defender_50;
+            this.pictureOpenWindef.Location = new System.Drawing.Point(250, 370);
+            this.pictureOpenWindef.Name = "pictureOpenWindef";
+            this.pictureOpenWindef.Size = new System.Drawing.Size(28, 28);
+            this.pictureOpenWindef.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureOpenWindef.TabIndex = 43;
+            this.pictureOpenWindef.TabStop = false;
+            this.pictureOpenWindef.Click += new System.EventHandler(this.pictureOpenWindef_Click);
             // 
             // VpsSetup
             // 
@@ -433,6 +446,7 @@ namespace VpsSetup
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 411);
+            this.Controls.Add(this.pictureOpenWindef);
             this.Controls.Add(this.checkSetupDesktop);
             this.Controls.Add(this.checkSetupNet472);
             this.Controls.Add(this.pictureOpenStartup);
@@ -480,6 +494,7 @@ namespace VpsSetup
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenTaskMgr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenControlPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureOpenCmd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOpenWindef)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,6 +534,7 @@ namespace VpsSetup
         private System.Windows.Forms.PictureBox pictureOpenStartup;
         private System.Windows.Forms.CheckBox checkSetupNet472;
         private System.Windows.Forms.CheckBox checkSetupDesktop;
+        private System.Windows.Forms.PictureBox pictureOpenWindef;
     }
 }
 
